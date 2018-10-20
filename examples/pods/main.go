@@ -17,10 +17,6 @@ var kubeconfig *string
 var namespace *string
 
 func init() {
-	fmt.Println("second init()")
-}
-
-func init() {
 	if home := homedir.HomeDir(); home != "" {
 		kubeconfig = flag.String("kubeconfig", filepath.Join(home, ".kube", "config"), "(optional) absolute path to the kubeconfig file")
 	} else {
@@ -28,8 +24,6 @@ func init() {
 	}
 	namespace = flag.String("namespace", "default", "namespace to use")
 	flag.Parse()
-
-	fmt.Println("first init()")
 }
 
 func main() {
